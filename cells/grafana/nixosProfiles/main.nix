@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  imports = [ ./psql.nix ];
+
   services.grafana = {
     enable = true;
     addr = "localhost";

@@ -7,7 +7,7 @@
   microvm.forwardPorts = [
     {
       from = "host";
-      host.port = 5999;
+      host.port = 6000;
       guest.port = 22;
     }
   ];
@@ -27,7 +27,7 @@
     volumes = [
       {
         mountPoint = "/var";
-        image = "/tmp/user.img";
+        image = "/tmp/user-${config.networking.hostName}.img";
         size = 2048;
       }
     ];
