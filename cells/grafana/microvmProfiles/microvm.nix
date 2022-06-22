@@ -10,6 +10,11 @@
       host.port = 6000;
       guest.port = 22;
     }
+    {
+      from = "host";
+      host.port = 3001;
+      guest.port = 3000;
+    }
   ];
   microvm = {
     hypervisor = "qemu";

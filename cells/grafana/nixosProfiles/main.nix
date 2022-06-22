@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [ ./psql.nix ];
+  imports = [./psql.nix];
 
   services.grafana = {
     enable = true;
