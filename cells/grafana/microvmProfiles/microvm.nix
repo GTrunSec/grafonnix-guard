@@ -4,6 +4,13 @@
   pkgs,
   ...
 }: {
+  microvm.forwardPorts = [
+    {
+      from = "host";
+      host.port = 5999;
+      guest.port = 22;
+    }
+  ];
   microvm = {
     hypervisor = "qemu";
 
