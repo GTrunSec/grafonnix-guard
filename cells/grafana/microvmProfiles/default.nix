@@ -12,6 +12,7 @@ in {
         cell.nixosProfiles.default
         # cell.nixosProfiles.agent
         ./microvm.nix
+        ./dev.nix
       ];
     };
   };
