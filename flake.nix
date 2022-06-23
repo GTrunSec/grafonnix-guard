@@ -8,8 +8,7 @@
     std.follows = "cells-lab/std";
     data-merge.follows = "cells-lab/data-merge";
     grafonnix.url = "github:divnix/grafonnix";
-    grafonnix.inputs.POP.follows = "POP";
-    POP.url = "github:divnix/POP/extenders";
+    POP.follows = "grafonnix/POP";
   };
 
   inputs = {
@@ -36,7 +35,7 @@
 
         (std.functions "nixosProfiles")
 
-        (inputs.std-microvm.microvms "microvmProfiles")
+        (inputs.cells-lab.microvms "microvmProfiles")
 
         (std.functions "packages")
 
