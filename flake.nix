@@ -14,7 +14,6 @@
   inputs = {
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
     microvm.url = "github:astro/microvm.nix";
-    std-microvm.follows = "cells-lab/std-microvm";
   };
 
   outputs = {std, ...} @ inputs:
