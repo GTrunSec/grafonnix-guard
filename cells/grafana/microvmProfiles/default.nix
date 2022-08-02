@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells-lab._microvms.library) makeVM;
+  inherit (inputs.cells-lab.microvms.library) makeVM;
 in {
   inherit (inputs) nixpkgs;
   dev = makeVM {

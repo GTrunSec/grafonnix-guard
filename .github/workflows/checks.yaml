@@ -1,0 +1,36 @@
+name: "CI"
+on:
+  push:
+    branches: [main, staging, trying]
+  schedule:
+    - cron: "0 0 * * SUN" # every sunday
+jobs:
+  nix-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+      - uses: cachix/install-nix-action@v17
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.10.0pre20220611_37fc4d7/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            system-features = nixos-test benchmark big-parallel kvm recursive-nix
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: zeek
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Run Flake Show
+        run: nix -Lv flake show
+
+      - name: Run Build MicroVM
+        run: nix -Lv build .#x86_64-linux.grafana.microvmProfiles.dev.config.microvm.runner.qemu
+
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@v4.4.0
+      #   with:
+      #     branch: gh-pages
+      #     folder: ./docs/book
