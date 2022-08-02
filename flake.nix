@@ -34,7 +34,7 @@
 
         (std.functions "nixosProfiles")
 
-        (inputs.cells-lab.microvms "microvmProfiles")
+        (std.microvms "microvmProfiles")
 
         (std.functions "packages")
 
