@@ -15,9 +15,11 @@ in
         inputs.cells-lab.main.devshellProfiles.default
         inputs.cells-lab.main.devshellProfiles.docs
       ];
-      commands = [{
-        name = "build-microvm";
-        command = "nix build .#x86_64-linux.grafana.microvmProfiles.dev.config.microvm.runner.qemu ${substituters} ${keys}";
-      }];
+      commands = [
+        {
+          name = "build-microvm";
+          command = "nix build .#x86_64-linux.grafana.microvmProfiles.dev.config.microvm.runner.qemu ${substituters} ${keys}";
+        }
+      ];
     };
   }

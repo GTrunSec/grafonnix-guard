@@ -12,7 +12,7 @@
     }
     {
       from = "host";
-      host.port = 3001;
+      host.port = 3000;
       guest.port = 3000;
     }
   ];
