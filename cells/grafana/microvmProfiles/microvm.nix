@@ -10,6 +10,8 @@
       host.port = 6000;
       guest.port = 22;
     }
+    # doesn't work for me.
+    # ssh -L 3001:localhost:3000 root@localhost -p 6000 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
     {
       from = "host";
       host.port = 3000;

@@ -15,6 +15,9 @@ in
         inputs.cells-lab.main.devshellProfiles.default
         inputs.cells-lab.main.devshellProfiles.docs
       ];
+      nixago = [
+        inputs.cells-lab.main.nixago.treefmt
+      ];
       commands = [
         {
           name = "build-microvm";
