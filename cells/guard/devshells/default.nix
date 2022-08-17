@@ -9,7 +9,7 @@
 in
   l.mapAttrs (_: std.std.lib.mkShell) {
     default = {lib, ...}: {
-      name = "Guard: grafonnix security event dashboard";
+      name = "Guard: grafonnix security events dashboard";
       std.docs.enable = lib.mkForce true;
       imports = [
         inputs.cells-lab.main.devshellProfiles.default
