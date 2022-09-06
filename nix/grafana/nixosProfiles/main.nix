@@ -8,7 +8,7 @@
 
   services.grafana = {
     enable = true;
-    addr = "localhost";
+    addr = "0.0.0.0";
     analytics.reporting.enable = false;
     domain = "localhost";
     security = {

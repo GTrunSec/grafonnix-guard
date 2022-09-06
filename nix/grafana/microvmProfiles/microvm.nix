@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+
+  networking.firewall.allowedTCPPorts = [3000];
+  networking.firewall.allowedUDPPorts = [3000];
+
   microvm.forwardPorts = [
     {
       from = "host";
