@@ -4,9 +4,7 @@
 
     cells-lab.url = "github:GTrunSec/cells-lab";
 
-    yants.follows = "cells-lab/yants";
     std.follows = "cells-lab/std";
-    data-merge.follows = "cells-lab/data-merge";
     grafonnix.url = "github:divnix/grafonnix";
     POP.follows = "grafonnix/POP";
   };
@@ -18,29 +16,33 @@
 
   outputs = {std, ...} @ inputs:
     std.growOn {
+
       inherit inputs;
-      cellsFrom = ./cells;
-      organelles = [
-        (std.installables "packages")
 
-        (std.functions "devshellProfiles")
-        (std.devshells "devshells")
+      cellsFrom = ./nix;
 
-        (std.data "dashboards")
+      cellBlocks = [
+        (std.blockTypes.installables "packages")
 
-        (std.runnables "entrypoints")
+        (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.devshells "devshells")
 
-        (std.functions "library")
+        (std.blockTypes.data "dashboards")
 
-        (std.functions "nixosProfiles")
+        (std.blockTypes.runnables "entrypoints")
 
-        (std.microvms "microvmProfiles")
+        (std.blockTypes.functions "library")
 
-        (std.functions "packages")
+        (std.blockTypes.functions "nixosProfiles")
 
-        (std.functions "overlays")
+        (std.blockTypes.microvms "microvmProfiles")
+
+        (std.blockTypes.functions "packages")
+
+        (std.blockTypes.functions "overlays")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["guard" "devshells"];
+      nixosConfigurations = inputs.std.harvest inputs.self ["grafana" "microvmProfiles"];
     };
 }
