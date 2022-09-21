@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.follows = "cells-lab/nixpkgs";
 
     cells-lab.url = "github:GTrunSec/cells-lab";
 
@@ -10,7 +10,8 @@
   };
 
   inputs = {
-    nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
+    # nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixos.follows = "cells-lab/nixos";
     microvm.url = "github:astro/microvm.nix";
   };
 

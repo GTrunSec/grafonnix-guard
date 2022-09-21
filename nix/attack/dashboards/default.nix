@@ -3,7 +3,9 @@
   cell,
 }: let
   inherit (inputs.grafonnix.lib) annotation;
+  l = inputs.nixpkgs.lib // inputs.grafonnix.lib // builtins // inputs.POP.lib;
 in {
+  adds = import ./adds.nix { lib = l; };
   datasource =
     (annotation.datasource {
       name = "newAdv";
