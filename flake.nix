@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.follows = "cells-lab/nixpkgs";
-
     cells-lab.url = "github:GTrunSec/cells-lab";
 
     std.follows = "cells-lab/std";
@@ -10,7 +9,6 @@
   };
 
   inputs = {
-    # nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
     nixos.follows = "cells-lab/nixos";
     microvm.url = "github:astro/microvm.nix";
   };
@@ -22,25 +20,25 @@
 
       cellsFrom = ./nix;
 
-      cellBlocks = [
-        (std.blockTypes.installables "packages")
+      cellBlocks = with std.blockTypes;[
+        (installables "packages")
 
-        (std.blockTypes.functions "devshellProfiles")
-        (std.blockTypes.devshells "devshells")
+        (functions "devshellProfiles")
+        (devshells "devshells")
 
-        (std.blockTypes.data "dashboards")
+        (data "dashboards")
 
-        (std.blockTypes.runnables "entrypoints")
+        (runnables "entrypoints")
 
-        (std.blockTypes.functions "library")
+        (functions "library")
 
-        (std.blockTypes.functions "nixosProfiles")
+        (functions "nixosProfiles")
 
-        (std.blockTypes.microvms "microvmProfiles")
+        (microvms "microvmProfiles")
 
-        (std.blockTypes.functions "packages")
+        (functions "packages")
 
-        (std.blockTypes.functions "overlays")
+        (functions "overlays")
       ];
     } {
       devShells = inputs.std.harvest inputs.self ["guard" "devshells"];

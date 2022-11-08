@@ -7,16 +7,16 @@
   substituters = "--option extra-substituters https://microvm.cachix.org";
   keys = "--option extra-trusted-public-keys microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys=";
 in
-  l.mapAttrs (_: std.std.lib.mkShell) {
+  l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {lib, ...}: {
       name = "Guard: grafonnix security events dashboard";
       std.docs.enable = lib.mkForce true;
       imports = [
-        inputs.cells-lab.main.devshellProfiles.default
-        inputs.cells-lab.main.devshellProfiles.docs
+        inputs.cells-lab._automation.devshellProfiles.default
+        inputs.cells-lab._automation.devshellProfiles.docs
       ];
       nixago = [
-        inputs.cells-lab.main.nixago.treefmt
+        inputs.cells-lab._automation.nixago.treefmt
       ];
       commands = [
         {
