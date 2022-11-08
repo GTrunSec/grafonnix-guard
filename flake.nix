@@ -30,7 +30,7 @@
 
         (runnables "entrypoints")
 
-        (functions "library")
+        (functions "lib")
 
         (functions "nixosProfiles")
 

@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells-lab.microvms.library) makeVM;
+  inherit (inputs.cells-lab.microvms.lib) makeVM;
 in {
   dev = makeVM {
     channel = inputs.nixos.legacyPackages;
