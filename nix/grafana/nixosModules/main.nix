@@ -12,8 +12,8 @@
     analytics.reporting.enable = false;
     domain = "localhost";
     security = {
-      adminUser = "testadmin";
-      adminPassword = "snakeoilpwd";
+      adminUser = "admin";
+      adminPassword = "admin";
     };
   };
 }

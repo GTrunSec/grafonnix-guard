@@ -10,7 +10,6 @@
 
   inputs = {
     nixos.follows = "cells-lab/nixos";
-    microvm.url = "github:astro/microvm.nix";
   };
 
   outputs = {std, ...} @ inputs:
@@ -32,7 +31,7 @@
 
         (functions "lib")
 
-        (functions "nixosProfiles")
+        (functions "nixosModules")
 
         (microvms "microvmProfiles")
 

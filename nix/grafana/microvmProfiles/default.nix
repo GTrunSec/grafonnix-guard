@@ -13,7 +13,7 @@ in {
             nixpkgs.flake = inputs.nixos;
           };
         }
-        cell.nixosProfiles.default
+        cell.nixosModules.default
         # cell.nixosProfiles.agent
         ./microvm.nix
         ./dev.nix
