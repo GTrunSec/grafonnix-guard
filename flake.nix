@@ -4,6 +4,8 @@
     cells-lab.url = "github:GTrunSec/cells-lab";
 
     std.follows = "cells-lab/std";
+    microvm.url = "github:astro/microvm.nix";
+    std.inputs.microvm.follows = "microvm";
     grafonnix.url = "github:divnix/grafonnix";
     POP.follows = "grafonnix/POP";
   };

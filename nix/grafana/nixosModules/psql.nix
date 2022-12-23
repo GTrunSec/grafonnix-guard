@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  services.grafana.database = {
+  services.grafana.settings.database = {
     host = "127.0.0.1:5432";
     user = "grafana";
   };

@@ -12,11 +12,11 @@ in
       name = "Guard: grafonnix security events dashboard";
       std.docs.enable = lib.mkForce true;
       imports = [
-        inputs.cells-lab._automation.devshellProfiles.default
-        inputs.cells-lab._automation.devshellProfiles.docs
+        inputs.cells-lab.automation.devshellProfiles.default
+        inputs.cells-lab.automation.devshellProfiles.docs
       ];
       nixago = [
-        inputs.cells-lab._automation.nixago.treefmt
+        inputs.cells-lab.automation.nixago.treefmt
       ];
       commands = [
         {
