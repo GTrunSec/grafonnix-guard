@@ -1,17 +1,19 @@
 {
   inputs = {
-    nixpkgs.follows = "cells-lab/nixpkgs";
-    cells-lab.url = "github:GTrunSec/cells-lab";
+    nixpkgs.follows = "std-ext/nixpkgs";
+    std-ext.url = "github:GTrunSec/std-ext";
+    std-ext.inputs.std.follows = "std";
 
-    std.follows = "cells-lab/std";
-    microvm.url = "github:astro/microvm.nix";
+    std.url = "github:divnix/std";
     std.inputs.microvm.follows = "microvm";
+    microvm.url = "github:astro/microvm.nix";
+
     grafonnix.url = "github:divnix/grafonnix";
     POP.follows = "grafonnix/POP";
   };
 
   inputs = {
-    nixos.follows = "cells-lab/nixos";
+    nixos.follows = "std-ext/nixos";
   };
 
   outputs = {std, ...} @ inputs:

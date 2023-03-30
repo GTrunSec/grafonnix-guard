@@ -10,13 +10,12 @@ in
   l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {lib, ...}: {
       name = "Guard: grafonnix security events dashboard";
-      std.docs.enable = lib.mkForce true;
       imports = [
-        inputs.cells-lab.automation.devshellProfiles.default
-        inputs.cells-lab.automation.devshellProfiles.docs
+        inputs.std-ext.automation.devshellProfiles.default
+        inputs.std-ext.automation.devshellProfiles.docs
       ];
       nixago = [
-        inputs.cells-lab.automation.nixago.treefmt
+        inputs.std-ext.automation.nixago.treefmt
       ];
       commands = [
         {

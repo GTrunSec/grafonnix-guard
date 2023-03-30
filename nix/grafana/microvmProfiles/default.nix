@@ -2,22 +2,20 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells-lab.microvms.lib) makeVM;
+  inherit (inputs.std.lib.ops) mkMicrovm;
 in {
-  dev = makeVM {
-    channel = inputs.nixos.legacyPackages;
-    module = _: {
+  dev =
+    mkMicrovm
+    ({config, ...}: {
       imports = [
-        {
-          nix.registry = {
-            nixpkgs.flake = inputs.nixos;
-          };
-        }
         cell.nixosModules.default
         # cell.nixosProfiles.agent
         ./microvm.nix
         ./dev.nix
       ];
-    };
-  };
+      config = {
+        nixpkgs.pkgs = inputs.nixos.legacyPackages;
+        documentation.enable = false;
+      };
+    });
 }
