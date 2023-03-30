@@ -20,7 +20,7 @@ in
       commands = [
         {
           name = "build-microvm";
-          command = "nix build .#x86_64-linux.grafana.microvmProfiles.dev.config.microvm.runner.qemu ${substituters} ${keys}";
+          command = "nix build .#${nixpkgs.system}.grafana.microvmProfiles.dev.config.microvm.runner.qemu ${substituters} ${keys}";
         }
       ];
     };

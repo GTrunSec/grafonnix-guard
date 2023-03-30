@@ -3,7 +3,7 @@
 ## Run the microvm-qemu with grafana and your dashboard settings
 
 ```
-std //grafana/microvmProfiles/dev:microvm
+std //grafana/microvmProfiles/dev:run
 ```
 
 ## Explore the example config files
