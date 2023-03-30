@@ -667,10 +667,6 @@
     },
     "root": {
       "inputs": {
-        "POP": [
-          "grafonnix",
-          "POP"
-        ],
         "grafonnix": "grafonnix",
         "microvm": "microvm",
         "nixos": [

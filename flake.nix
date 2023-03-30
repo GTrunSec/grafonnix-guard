@@ -9,7 +9,6 @@
     microvm.url = "github:astro/microvm.nix";
 
     grafonnix.url = "github:divnix/grafonnix";
-    POP.follows = "grafonnix/POP";
   };
 
   inputs = {
